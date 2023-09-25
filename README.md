@@ -1,3 +1,5 @@
 # fxcity-demo
 
-Demos of fxcity
+Demo of fxcity.
+
+Start from here: com.example.fxcitydemo.Application.main  
