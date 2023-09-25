@@ -3,6 +3,8 @@ package com.example.fxcitydemo.gameworld;
 import com.almasb.fxgl.entity.Entity;
 import com.almasb.fxgl.entity.SpawnData;
 import com.example.fxcitydemo.gameworld.entity.Launcher;
+import com.example.fxcitydemo.gameworld.entity.ammo.Bullet;
+import com.example.fxcitydemo.gameworld.entity.ammo.LauncherMissile;
 import com.example.fxcitydemo.gameworld.entity.characters.ClancyComponent;
 
 public interface SpawnService extends com.whitewoodcity.fxgl.service.SpawnService<Type> {
@@ -11,6 +13,8 @@ public interface SpawnService extends com.whitewoodcity.fxgl.service.SpawnServic
     return switch (type) {
       case CLANCY -> ClancyComponent.of(data);
       case LAUNCHER -> Launcher.of(data);
+      case BULLET -> Bullet.of(data);
+      case LAUNCHER_MISSILE -> LauncherMissile.of(data);
       default -> throw new RuntimeException("Type "+type+" is not supported yet.");
     };
   }

@@ -30,8 +30,8 @@ import javafx.scene.text.Font;
 
 import java.util.List;
 
-public class Setting extends MenuScene implements SaveService, SpawnService, FrontlineService {
-  public static final String SCENE_NAME = "Setting";
+public class PlatformGame extends MenuScene implements SaveService, SpawnService, FrontlineService {
+  public static final String SCENE_NAME = "PlatformGame";
 
   private GameWorld gameWorld;
   private Entity player, launcher;

@@ -4,6 +4,7 @@ import com.almasb.fxgl.app.GameSettings;
 import com.example.fxcitydemo.gameworld.FrontlineService;
 import com.example.fxcitydemo.gameworld.PropertyKey;
 import com.example.fxcitydemo.xgamescenes.Index;
+import com.example.fxcitydemo.xgamescenes.PlatformGame;
 import com.whitewoodcity.fxgl.app.GameApplication;
 import com.whitewoodcity.fxgl.app.ReplaceableGameSceneBuilder;
 import com.whitewoodcity.fxgl.dsl.FXGL;
@@ -53,6 +54,7 @@ public class GameApp extends GameApplication {
   protected XGameScene getGameSceneByName(String sceneName, Object... parameters) {
     return switch (sceneName) {
       case Index.SCENE_NAME ->  new Index();
+      case PlatformGame.SCENE_NAME -> new PlatformGame();
       default -> throw new RuntimeException("Wrong XGameScene type");
     };
   }

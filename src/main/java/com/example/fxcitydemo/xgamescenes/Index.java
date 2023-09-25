@@ -3,6 +3,7 @@ import com.almasb.fxgl.app.scene.GameScene;
 import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
 import com.almasb.fxgl.entity.GameWorld;
+import com.example.fxcitydemo.GameApp;
 import com.whitewoodcity.flame.SVG;
 import com.whitewoodcity.fxgl.service.ExitService;
 import com.whitewoodcity.fxgl.service.ReplaceableGameScene;
@@ -82,7 +83,7 @@ public class Index implements ReplaceableGameScene, ExitService {
       input.onActionBegin(keyCode, () -> {
         FXGL.play("finger.wav");
         if (fingers.get(0).isVisible()) {
-//          FXGL.<GameApplication>getAppCast().push(Prelude0.SCENE_NAME);
+          FXGL.<GameApp>getAppCast().push(PlatformGame.SCENE_NAME);
         } else if (fingers.get(1).isVisible()) {
 //          FXGL.<GameApplication>getAppCast().push(Loading.SCENE_NAME);
         } else {
