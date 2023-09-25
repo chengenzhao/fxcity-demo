@@ -1,10 +1,9 @@
 package com.example.fxcitydemo;
 
 import com.almasb.fxgl.app.GameSettings;
-import com.almasb.fxgl.app.scene.LoadingScene;
-import com.almasb.fxgl.app.scene.SceneFactory;
 import com.example.fxcitydemo.gameworld.FrontlineService;
 import com.example.fxcitydemo.gameworld.PropertyKey;
+import com.example.fxcitydemo.xgamescenes.Index;
 import com.whitewoodcity.fxgl.app.GameApplication;
 import com.whitewoodcity.fxgl.app.ReplaceableGameSceneBuilder;
 import com.whitewoodcity.fxgl.dsl.FXGL;

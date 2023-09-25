@@ -1,4 +1,4 @@
-package com.example.fxcitydemo;
+package com.example.fxcitydemo.xgamescenes;
 import com.almasb.fxgl.app.scene.GameScene;
 import com.almasb.fxgl.audio.Music;
 import com.almasb.fxgl.dsl.FXGL;
@@ -175,60 +175,60 @@ public class Index implements ReplaceableGameScene, ExitService {
     //menu
     var gridpane = new GridPane();
 
-    var start = new Text("New Game");
-    start.setFont(FXGL.getAssetLoader().loadFont("Lato-Bold.ttf").newFont(50));
-    start.setFill(Color.WHITE);
-    start.setEffect(new Bloom());
+    var platformGame = new Text("Platform Game");
+    platformGame.setFont(FXGL.getAssetLoader().loadFont("Lato-Bold.ttf").newFont(50));
+    platformGame.setFill(Color.WHITE);
+    platformGame.setEffect(new Bloom());
 
-    var load = new Text("Load Game");
-    load.fontProperty().bind(start.fontProperty());
-    load.fillProperty().bind(start.fillProperty());
-    load.effectProperty().bind(start.effectProperty());
+    var rogueLikeGame = new Text("Rogue Like Game");
+    rogueLikeGame.fontProperty().bind(platformGame.fontProperty());
+    rogueLikeGame.fillProperty().bind(platformGame.fillProperty());
+    rogueLikeGame.effectProperty().bind(platformGame.effectProperty());
 
-    var config = new Text("Setting");
-    config.fontProperty().bind(start.fontProperty());
-    config.fillProperty().bind(start.fillProperty());
-    config.effectProperty().bind(start.effectProperty());
+    var dialogScene = new Text("Dialog Scene");
+    dialogScene.fontProperty().bind(platformGame.fontProperty());
+    dialogScene.fillProperty().bind(platformGame.fillProperty());
+    dialogScene.effectProperty().bind(platformGame.effectProperty());
 
-    gridpane.add(start, 1, 0);
-    gridpane.add(load, 1, 1);
-    gridpane.add(config, 1, 2);
+    gridpane.add(platformGame, 1, 0);
+    gridpane.add(rogueLikeGame, 1, 1);
+    gridpane.add(dialogScene, 1, 2);
 
-    start.setOnMouseEntered(_1 -> {
+    platformGame.setOnMouseEntered(_1 -> {
       if (!fingers.get(0).isVisible()) {
         FXGL.play("finger.wav");
         fingers.forEach(finger -> finger.setVisible(false));
         fingers.get(0).setVisible(true);
       }
     });
-    load.setOnMouseEntered(_1 -> {
+    rogueLikeGame.setOnMouseEntered(_1 -> {
       if (!fingers.get(1).isVisible()) {
         FXGL.play("finger.wav");
         fingers.forEach(finger -> finger.setVisible(false));
         fingers.get(1).setVisible(true);
       }
     });
-    config.setOnMouseEntered(_1 -> {
+    dialogScene.setOnMouseEntered(_1 -> {
       if (!fingers.get(2).isVisible()) {
         FXGL.play("finger.wav");
         fingers.forEach(finger -> finger.setVisible(false));
         fingers.get(2).setVisible(true);
       }
     });
-    start.setOnMouseClicked(_1 -> FXGL.getInput().mockKeyPress(KeyCode.ENTER));
-    load.setOnMouseClicked(_1 -> FXGL.getInput().mockKeyPress(KeyCode.ENTER));
-    config.setOnMouseClicked(_1 -> FXGL.getInput().mockKeyPress(KeyCode.ENTER));
+    platformGame.setOnMouseClicked(_1 -> FXGL.getInput().mockKeyPress(KeyCode.ENTER));
+    rogueLikeGame.setOnMouseClicked(_1 -> FXGL.getInput().mockKeyPress(KeyCode.ENTER));
+    dialogScene.setOnMouseClicked(_1 -> FXGL.getInput().mockKeyPress(KeyCode.ENTER));
 
-    var svg = generateFinger(start.boundsInLocalProperty().map(b -> b.getHeight() * 0.8));
+    var svg = generateFinger(platformGame.boundsInLocalProperty().map(b -> b.getHeight() * 0.8));
     fingers.add(svg);
     gridpane.add(svg, 0, 0);
 
-    svg = generateFinger(start.boundsInLocalProperty().map(b -> b.getHeight() * 0.8));
+    svg = generateFinger(platformGame.boundsInLocalProperty().map(b -> b.getHeight() * 0.8));
     fingers.add(svg);
     svg.setVisible(false);
     gridpane.add(svg, 0, 1);
 
-    svg = generateFinger(start.boundsInLocalProperty().map(b -> b.getHeight() * 0.8));
+    svg = generateFinger(platformGame.boundsInLocalProperty().map(b -> b.getHeight() * 0.8));
     fingers.add(svg);
     svg.setVisible(false);
     gridpane.add(svg, 0, 2);

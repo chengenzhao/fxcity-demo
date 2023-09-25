@@ -1,5 +1,6 @@
 package com.example.fxcitydemo;
 
+import com.example.fxcitydemo.xgamescenes.Index;
 import com.whitewoodcity.atlantafx.base.theme.CityDark;
 import com.whitewoodcity.fxgl.service.FillService;
 import javafx.scene.Scene;
