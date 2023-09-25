@@ -25,9 +25,10 @@ public class GameApp extends GameApplication {
   @Override
   @SuppressWarnings("all")
   protected void initSettings(GameSettings settings) {
+    this.logoString = "Demo game";
     settings.setHeight(1000);
     settings.setWidth((int) (Screen.getPrimary().getBounds().getWidth() / Screen.getPrimary().getBounds().getHeight() * 1000));
-    settings.setTitle("Xtrike");
+    settings.setTitle(logoString);
     settings.setMainMenuEnabled(false);
     settings.setGameMenuEnabled(false);
     settings.setFontUI("BlackOpsOne-Regular.ttf");
