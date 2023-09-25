@@ -4,10 +4,10 @@ import com.almasb.fxgl.dsl.components.EffectComponent;
 import com.almasb.fxgl.dsl.components.HealthDoubleComponent;
 import com.almasb.fxgl.dsl.components.HealthIntComponent;
 import com.almasb.fxgl.entity.Entity;
-import com.whitewoodcity.xtrike.gameworld.entity.Type;
-import com.whitewoodcity.xtrike.gameworld.entity.accessories.Daemon;
-import com.whitewoodcity.xtrike.gameworld.entity.components.DestroyableComponent;
-import com.whitewoodcity.xtrike.gameworld.entity.effect.BrightEffect;
+import com.example.fxcitydemo.gameworld.Type;
+import com.example.fxcitydemo.gameworld.entity.accessories.Daemon;
+import com.example.fxcitydemo.gameworld.entity.components.DestroyableComponent;
+import com.example.fxcitydemo.gameworld.entity.effect.BrightEffect;
 import javafx.util.Duration;
 
 public class SmallExplodableCollisionHandler extends CollisionHandlerWithPlayerHitEffect {
