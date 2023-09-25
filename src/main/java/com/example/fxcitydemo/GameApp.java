@@ -3,6 +3,8 @@ package com.example.fxcitydemo;
 import com.almasb.fxgl.app.GameSettings;
 import com.almasb.fxgl.app.scene.LoadingScene;
 import com.almasb.fxgl.app.scene.SceneFactory;
+import com.example.fxcitydemo.gameworld.FrontlineService;
+import com.example.fxcitydemo.gameworld.PropertyKey;
 import com.whitewoodcity.fxgl.app.GameApplication;
 import com.whitewoodcity.fxgl.app.ReplaceableGameSceneBuilder;
 import com.whitewoodcity.fxgl.dsl.FXGL;
@@ -41,9 +43,9 @@ public class GameApp extends GameApplication {
   public Object push(String sceneName, Object... parameters) {
     var app = super.push(sceneName, parameters);
 
-//    if (app instanceof ReplaceableGameScene) {
-//      FXGL.set(PropertyKey.SCENE_NAME, sceneName);
-//    }
+    if (app instanceof ReplaceableGameScene) {
+      FXGL.set(PropertyKey.SCENE_NAME, sceneName);
+    }
 
     return app;
   }
@@ -54,5 +56,12 @@ public class GameApp extends GameApplication {
       case Index.SCENE_NAME ->  new Index();
       default -> throw new RuntimeException("Wrong XGameScene type");
     };
+  }
+
+  public FrontlineService getFrontlineService() {
+    var app = gameScenes.getLast();
+    if (app instanceof FrontlineService frontlineService)
+      return frontlineService;
+    else return null;
   }
 }
