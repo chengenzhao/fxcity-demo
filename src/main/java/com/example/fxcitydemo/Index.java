@@ -127,13 +127,13 @@ public class Index implements ReplaceableGameScene, ExitService {
 
     ft.play();
 
-    var x = new Text("X   ");
-    x.setUnderline(true);
-    x.setFont(FXGL.getAssetLoader().loadFont("Ewert-Regular.ttf").newFont(FXGL.getAppHeight() / 3.0));
-    x.setFill(Color.LIGHTGRAY.brighter());
-    x.setStrokeWidth(3);
-    x.setStroke(Color.web("3d75b0"));
-    x.setStrokeLineJoin(StrokeLineJoin.ROUND);
+    var d = new Text("D   ");
+    d.setUnderline(true);
+    d.setFont(FXGL.getAssetLoader().loadFont("Ewert-Regular.ttf").newFont(FXGL.getAppHeight() / 3.0));
+    d.setFill(Color.LIGHTGRAY.brighter());
+    d.setStrokeWidth(3);
+    d.setStroke(Color.web("3d75b0"));
+    d.setStrokeLineJoin(StrokeLineJoin.ROUND);
 
     var stops = List.of(new Stop(0, Color.WHITE), new Stop(0.4, Color.web("3978ed")), new Stop(1, Color.web("030534")));
     var radialGradient = new RadialGradient(0, 0, 0.28, 0.33, 0.5, true, CycleMethod.NO_CYCLE, stops);
@@ -148,19 +148,19 @@ public class Index implements ReplaceableGameScene, ExitService {
     label.translateXProperty().bind(label.widthProperty().map(v -> -v.doubleValue()));
     label.translateYProperty().bind(label.heightProperty().map(v -> -v.doubleValue() / 3));
 
-    var trike = new Text("trike");
-    trike.underlineProperty().bind(x.underlineProperty());
-    trike.setFont(FXGL.getAssetLoader().loadFont("Girassol-Regular.ttf").newFont(FXGL.getAppHeight() / 3.0));
-    trike.fillProperty().bind(x.fillProperty());
-    trike.strokeWidthProperty().bind(x.strokeWidthProperty());
-    trike.strokeProperty().bind(x.strokeProperty());
-    trike.strokeLineCapProperty().bind(x.strokeLineCapProperty());
-    trike.strokeLineJoinProperty().bind(x.strokeLineJoinProperty());
-    trike.translateXProperty().bind(label.translateXProperty().map(v -> v.doubleValue() * 1.2));
-    trike.translateYProperty().bind(x.translateYProperty());
+    var emo = new Text("emo");
+    emo.underlineProperty().bind(d.underlineProperty());
+    emo.setFont(FXGL.getAssetLoader().loadFont("Girassol-Regular.ttf").newFont(FXGL.getAppHeight() / 3.0));
+    emo.fillProperty().bind(d.fillProperty());
+    emo.strokeWidthProperty().bind(d.strokeWidthProperty());
+    emo.strokeProperty().bind(d.strokeProperty());
+    emo.strokeLineCapProperty().bind(d.strokeLineCapProperty());
+    emo.strokeLineJoinProperty().bind(d.strokeLineJoinProperty());
+    emo.translateXProperty().bind(label.translateXProperty().map(v -> v.doubleValue() * 1.2));
+    emo.translateYProperty().bind(d.translateYProperty());
 
     var textflow = new TextFlow();
-    textflow.getChildren().addAll(x, label, trike);
+    textflow.getChildren().addAll(d, label, emo);
 
     textflow.setTextAlignment(TextAlignment.CENTER);
     textflow.setMinWidth(Region.USE_PREF_SIZE);//no wrap
@@ -168,7 +168,7 @@ public class Index implements ReplaceableGameScene, ExitService {
     DropShadow dropShadow = new DropShadow(50, Color.web("bfd1df"));
     textflow.setEffect(dropShadow);
 
-    textflow.translateXProperty().bind(XBindings.reduce(x.layoutBoundsProperty(), label.widthProperty().map(Number::doubleValue), trike.layoutBoundsProperty(),
+    textflow.translateXProperty().bind(XBindings.reduce(d.layoutBoundsProperty(), label.widthProperty().map(Number::doubleValue), emo.layoutBoundsProperty(),
       (xLayout, labelWidth, trikeLayout) -> FXGL.getAppCenter().getX() - (xLayout.getWidth() + trikeLayout.getWidth() - labelWidth * .2) / 2));
     textflow.translateYProperty().bind(textflow.layoutBoundsProperty().map(layout -> FXGL.getAppCenter().getY() - layout.getHeight() * .8));
 
